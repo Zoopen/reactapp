@@ -63,23 +63,25 @@ class Game extends React.Component {
         this.state={
             history:[{
                 squares:Array(9).fill(null),
-                currentPos:null
+                currentPos:[]
             }],
             xIsNext:true,
             stepNumber:0
         }
     }
     handleClick(i) {
+        console.log("click")
         const history = this.state.history.slice(0,this.state.stepNumber+1);
         const current = history[history.length-1];
         const squares = current.squares.slice();
+        const currentPos = current.currentPos.concat(calculatePosition(i))
         if(calculateWinner(squares)||squares[i]){
             return;
         }
         
         squares[i] = this.state.xIsNext ? "X" : "O"
         this.setState({
-            history:history.concat([{squares:squares,currentPos:calculatePosition(i)}]),
+            history:history.concat([{squares:squares,currentPos:currentPos}]),
             stepNumber:history.length,
             xIsNext:!this.state.xIsNext
         })
@@ -88,6 +90,8 @@ class Game extends React.Component {
         this.setState({
             stepNumber:step,
             xIsNext:(step%2)===0
+        },()=>{
+            console.log("setState回调")
         })
     }
     render() {
@@ -95,9 +99,11 @@ class Game extends React.Component {
         const current = history[this.state.stepNumber]
         const winner = calculateWinner(current.squares);
         const currentPos = history[this.state.stepNumber].currentPos
+        console.log("xxxxxxxxxxxxxxx",currentPos,history)
         const moves = history.map((stop,move)=>{
+            console.log(move)
             const desc = move ? 
-            'Go to move #' + move + currentPos?"列："+currentPos.j+",行："+currentPos.i:"":
+            'Go to move #' + move + currentPos.length?"列："+currentPos[currentPos.length-1].j+",行："+currentPos[currentPos.length-1].i:"":
             'Go to game start';
             return (
                 <li key={move}>

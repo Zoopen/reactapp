@@ -102,8 +102,13 @@ class Game extends React.Component {
         console.log("xxxxxxxxxxxxxxx",currentPos,history)
         const moves = history.map((stop,move)=>{
             console.log(move)
+            if(move){
+                if(!currentPos[move-1]){
+                    return;
+                }
+            }
             const desc = move ? 
-            'Go to move #' + move + currentPos.length?"列："+currentPos[currentPos.length-1].j+",行："+currentPos[currentPos.length-1].i:"":
+            'Go to move #' + move + currentPos.length?"列："+currentPos[move-1].j+",行："+currentPos[move-1].i:"":
             'Go to game start';
             return (
                 <li key={move}>

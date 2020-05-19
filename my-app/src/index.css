@@ -48,4 +48,11 @@ body {
   .game-info {
     margin-left: 20px;
   }
-  
+
+  ol li.active{
+    font-weight: bold;
+  }
+  ol li.active button{
+    font-weight: bold;
+
+  }

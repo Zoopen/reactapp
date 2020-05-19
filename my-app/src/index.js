@@ -66,8 +66,16 @@ class Game extends React.Component {
                 currentPos:[]
             }],
             xIsNext:true,
-            stepNumber:0
+            stepNumber:0,
+            currentHistoryIndex:999
         }
+        this.setCurrentHistoryIndex = this.setCurrentHistoryIndex.bind(this)
+    }
+    setCurrentHistoryIndex(index){
+        console.log("index",index)
+        this.setState({
+            currentHistoryIndex:index
+        })
     }
     handleClick(i) {
         console.log("click")
@@ -111,8 +119,11 @@ class Game extends React.Component {
             'Go to move #' + move + currentPos.length?"列："+currentPos[move-1].j+",行："+currentPos[move-1].i:"":
             'Go to game start';
             return (
-                <li key={move}>
-                    <button onClick={()=>this.jumpTo(move)}>{desc}</button>
+                <li key={move} className={this.state.stepNumber==move?"active":""}>
+                    <button onClick={()=>{
+                        this.jumpTo(move)
+                        this.setCurrentHistoryIndex(move)
+                    }}>{desc}</button>
                 </li>
             )
         })

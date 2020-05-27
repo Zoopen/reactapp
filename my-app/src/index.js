@@ -17,7 +17,7 @@ import './index.css';
 // ↓↓↓↓↓↓↓↓↓↓↓class组件如果只有render的话，可以改写成函数组件
 function Square(props){
     return (
-        <button className="square" onClick={props.onClick}>
+        <button className={props.light?"Light":""+"square"} onClick={props.onClick}>
             {props.value}
         </button>
     )
@@ -27,8 +27,10 @@ class Board extends React.Component {
     
     renderSquare(i) {
         const winLine = this.props.winLine
+        console.log("winLine1111111111111111111111111111111111",winLine)
         return (
             <Square
+                light={winLine.includes(i)?true:false}
                 key={i}
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
@@ -150,6 +152,7 @@ class Game extends React.Component {
         let winLine = [];
         
         if(winner){
+            console.log(winner)
             status = 'Winner:'+winner
             winLine = calculateWinner(current.squares).winLine;
 

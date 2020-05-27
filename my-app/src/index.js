@@ -17,7 +17,7 @@ import './index.css';
 // ↓↓↓↓↓↓↓↓↓↓↓class组件如果只有render的话，可以改写成函数组件
 function Square(props){
     return (
-        <button className={props.light?"Light":""+"square"} onClick={props.onClick}>
+        <button className={props.light?"Light square":""+"square"} onClick={props.onClick}>
             {props.value}
         </button>
     )
@@ -153,11 +153,11 @@ class Game extends React.Component {
         
         if(winner){
             console.log(winner)
-            status = 'Winner:'+winner
+            status = 'Winner:'+winner.winner
             winLine = calculateWinner(current.squares).winLine;
 
         }else{
-            status = 'Next player:' + (this.state.xIsNext ? 'X' : 'O');
+            status = this.state.stepNumber>=9?"平局":('Next player:' + (this.state.xIsNext ? 'X' : 'O'));
         }
         
         

@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "like_button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "say-hello": "echo 'Hello world!'",
+    "awesome-npm": "npm run say-hello && echo 'npm is awesome'",
+    "clean": "rm -r dist && mkdir dist",
+    "bash-hello": "bash hello.sh",
+    "js-add": "node add.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -2,16 +2,27 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "like_button.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "say-hello": "echo 'Hello world!'",
+    "presay-hello": "echo 'I run before say-hello, pre'",
+    "postsay-hello": "echo 'I run after say-hello, post'",
     "awesome-npm": "npm run say-hello && echo 'npm is awesome'",
     "clean": "rm -r dist && mkdir dist",
+    "prebuild": "npm run clean",
+    "build": "webpack",
     "bash-hello": "bash hello.sh",
     "js-add": "node add.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
 }

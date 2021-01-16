@@ -10,7 +10,6 @@ export default class Form extends React.Component {
     state = this.initialState
 
     handleChange = (event) =>{
-        console.log(event)
         const {name, value} = event.target
 
         this.setState({

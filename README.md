@@ -68,3 +68,6 @@ state,保存一些需要删除修改但是不必要添加到数据库的数据
 * 父组件中写一个修改state的方法并传递给子组件
 * 子组件中触发该方法
 
+### lifecycle 
+componentWillMount
+componentDidMount

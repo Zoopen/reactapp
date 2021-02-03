@@ -396,6 +396,41 @@ class Caculator extends React.Component {
   }
 }
 
+//包含关系
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+        {props.children}
+    </div>
+  )
+}
+
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+        <h1 className="Dialog-title">Welcome</h1>
+        <p className="Dialog-message">Thank you for visiting out spacecraft!</p>
+    </FancyBorder>
+  )
+}
+
+// 特例关系
+// HelloDialog 为 Dialog 的一个实例 类组件同理
+function HelloDialog() {
+  return (
+    <Dialog title="Hello" message="This is a new world" />
+  )
+}
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+        <h1 className="Dialog-title">{props.title}</h1>
+        <p className="Dialog-message">{props.message}</p>
+    </FancyBorder>
+  )
+}
+
+
 function App() {
   return (
     <div>
@@ -412,6 +447,8 @@ function App() {
       <EssayForm />
       <FlavorForm />
       <Caculator />
+      <WelcomeDialog />
+      <HelloDialog />
     </div>
   )
 }

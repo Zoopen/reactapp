@@ -1,5 +1,5 @@
-### step by step
-## JSX语法：
+# step by step
+# JSX语法：
 ```
 const name = 'Nicolas'
 const element = <h1 className='myClass' style={{display:none}}>Hello, {name}</h1>
@@ -37,7 +37,7 @@ const element = {
 }
 ```
 
-## 元素渲染
+# 元素渲染
 HTML 文件某处有一个 <div>：
 <div id="root"></div>
 将一个 React 元素渲染到根 DOM 节点中，只需把它们一起传入 ReactDOM.render()：
@@ -48,7 +48,7 @@ ReactDom.render(element, document.getElementById('root'))
 React 元素是**不可变对象**。一旦被创建，你就无法更改它的子元素或者属性。一个元素就像电影的单帧：它代表了某个特定时刻的 UI。
 React DOM 会将元素和它的子元素与它们之前的状态进行比较，并只会进行必要的更新来使 DOM 达到预期的状态。
 
-## 组件&Props
+# 组件&Props
 组件分两种：
 * 函数组件
 * class组件
@@ -57,7 +57,7 @@ React DOM 会将元素和它的子元素与它们之前的状态进行比较，�
 
 Props是只读的
 
-## State&生命周期
+# State&生命周期
  state 是私有的，并且完全受控于当前组件。
  使用 this.setState() 来时刻更新组件 state：
  正确地使用 State
@@ -86,7 +86,7 @@ this.setState((state, props) => ({
 子组件会在其 props 中接收参数 date，但是子组件本身无法知道它是来自于 父组件 的 state，或是 父组件 的 props，还是手动输入的：
 
 
-## 事件处理
+# 事件处理
 * React 事件的命名采用小驼峰式（camelCase），而不是纯小写。
 onclick ——> onClick
 * 使用 JSX 语法时你需要传入一个函数作为事件处理函数，而不是一个字符串。
@@ -101,14 +101,14 @@ onclick ——> onClick
 在这两种情况下，React 的事件对象 e 会被作为第二个参数传递。如果通过箭头函数的方式，事件对象必须显式的进行传递，而通过 bind 的方式，事件对象以及更多的参数将会被隐式的进行传递。
 
 
-## 条件渲染
+# 条件渲染
 if else
 与运算符 &&
 三目运算符
 
 阻止组件渲染 return false;
 
-## 列表 & Key
+# 列表 & Key
 map() 方法来遍历 
 每一个遍历的元素必须确定一个标识Key
 一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key;
@@ -134,7 +134,7 @@ map() 方法来遍历
 
 在 JSX 中嵌入 map() ，JSX 允许在大括号中嵌入任何表达式，所以我们可以内联 map() 
 
-## 表单——受控组件
+# 表单——受控组件
 在 React 中，可变状态（mutable state）通常保存在组件的 state 属性中，并且只能通过使用 setState()来更新。
  React 的 state 成为“唯一数据源”。渲染表单的 React 组件还控制着用户输入过程中表单发生的操作。被 React 以这种方式控制取值的表单输入元素就叫做“受控组件”。
 
@@ -175,4 +175,22 @@ map() 方法来遍历
  非受控组件
 
 
- ## 状态提升
+# 状态提升
+在 React 应用中，任何可变数据应当只有一个相对应的唯一“数据源”。通常，state 都是首先添加到要渲染数据的组件中去。然后，如果其他组件也需要这个 state，那么你可以将它提升至这些组件的最共同父组件中。
+
+
+# 组合VS继承
+## 包含关系
+有些组件无法提前知晓它们子组件的具体内容。在 `Sidebar`（侧边栏）和 `Dialog`（对话框）等展现通用容器（box）的组件中特别容易遇到这种情况。
+
+1.A组件JSX 标签中的所有内容都会作为一个`children` prop 传递给A组件
+2.也可以通过属性方式向A组件传递多个prop（你可以将任何东西作为 props 进行传递。包括基本数据类型，React 元素以及函数。）
+## 特例关系
+有些时候，我们会把一些组件看作是其他组件的特殊实例，比如 `WelcomeDialog` 可以说是 `Dialog` 的特殊实例。
+并没有发现需要使用继承来构建组件层次的情况。
+Props 和组合为你提供了清晰而安全地定制组件外观和行为的灵活方式。注意：组件可以接受任意 props，包括基本数据类型，React 元素以及函数。
+要在组件间复用非 UI 的功能，我们建议将其提取为一个单独的 JavaScript 模块，如函数、对象或者类。组件可以直接引入（import）而无需通过 extend 继承它们。
+
+
+# React 哲学
+* 单一功能原则

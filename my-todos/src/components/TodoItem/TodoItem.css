@@ -1,0 +1,30 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+.todo-item {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.am-swipe-content,
+.am-swipe-actions {
+  border-radius: 10px;
+}
+.done {
+  text-decoration: line-through;
+  color: #333;
+}
+.done .am-list-item .am-list-line .am-list-content {
+  color: #c0c0c0;
+}
+
+li {
+  position: relative;
+}
+
+.am-swipe {
+  overflow: unset;
+}

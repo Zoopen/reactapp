@@ -1,6 +1,5 @@
 import './App.css';
 import Routes from './router/index';
-
 function App() {
   return <Routes></Routes>
 }

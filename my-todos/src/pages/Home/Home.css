@@ -1,0 +1,63 @@
+.list-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 30px;
+}
+.addTodo {
+  position: fixed;
+  bottom: 75px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+}
+
+.my-modal .am-modal-content {
+  padding: 20px 30px;
+}
+
+.my-textarea {
+  padding: 0;
+}
+.my-textarea .am-textarea-control {
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 22px;
+  padding: 10px;
+
+}
+.my-textarea textarea {
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.tool-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.left-btn {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.left-btn .am-button {
+    width: 30px;
+    height: 30px;
+}
+
+.left-btn .am-button::before {
+    border: none!important;
+}
+
+.save {
+    width: 72px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 18px;
+}

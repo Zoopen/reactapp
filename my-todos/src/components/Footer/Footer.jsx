@@ -11,7 +11,7 @@ class Footer extends React.Component {
   render() {
     const {location, history} = this.props;
     return (
-      <div className="tabbar">
+      <div className="footer">
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#33A3F4"
@@ -38,11 +38,11 @@ class Footer extends React.Component {
                 }}
               />
             }
-            title="收集箱"
-            key="collection"
-            selected={location.pathname === "/collection"}
+            title="代办"
+            key="todo"
+            selected={location.pathname === "/todo"}
             onPress={() => {
-              history.replace("/collection")
+              history.replace("/todo")
             }}
           ></TabBar.Item>
           <TabBar.Item
@@ -66,39 +66,11 @@ class Footer extends React.Component {
                 }}
               />
             }
-            title="日程"
-            key="schedule"
-            selected={location.pathname === "/schedule"}
+            title="笔记"
+            key="note"
+            selected={location.pathname === "/note"}
             onPress={() => {
-              history.replace("/schedule")
-            }}
-          ></TabBar.Item>
-          <TabBar.Item
-            icon={
-              <div
-                style={{
-                  width: "22px",
-                  height: "22px",
-                  background:
-                    "url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat",
-                }}
-              />
-            }
-            selectedIcon={
-              <div
-                style={{
-                  width: "22px",
-                  height: "22px",
-                  background:
-                    "url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat",
-                }}
-              />
-            }
-            title="回顾"
-            key="review"
-            selected={location.pathname === "/review"}
-            onPress={() => {
-              history.replace("/review")
+              history.replace("/note")
             }}
           ></TabBar.Item>
         </TabBar>

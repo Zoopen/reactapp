@@ -1,6 +1,6 @@
 function Schedule() {
     return (
-        <div>
+        <div className="wrapper">
             Schedule
         </div>
     )
